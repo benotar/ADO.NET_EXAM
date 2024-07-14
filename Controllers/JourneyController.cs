@@ -15,6 +15,9 @@ public class JourneyController : Controller
     public JourneyController(ISender sender) => _sender = sender;
 
     [HttpGet("{cityName}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<Journey>>> GetJourneysArrivingTo(string cityName)
     {
         try
@@ -35,6 +38,8 @@ public class JourneyController : Controller
     }
     
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<Journey>> AddJourney(CreateJourneyCommand command)
     {
         try
@@ -57,5 +62,19 @@ public class JourneyController : Controller
             return BadRequest(ex.Message);
         }
     }
-    
+
+    [HttpPut]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> BuyTicket(BuyTicketCommand command)
+    {
+        var isBuyTicket = await _sender.Send(command);
+
+        if (!isBuyTicket)
+        {
+            return BadRequest("No available tickets found!");
+        }
+
+        return Ok("The ticket has been successfully purchased!");
+    }
 }
