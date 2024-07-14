@@ -10,9 +10,9 @@ public record CreateTicketsCommand(int JourneyId) : IRequest<bool>;
 
 public class CreateTicketsCommandHandler : IRequestHandler<CreateTicketsCommand, bool>
 {
-    private readonly RailwayDbContext _db;
+    private readonly IRailwayDbContext _db;
 
-    public CreateTicketsCommandHandler(RailwayDbContext db) => _db = db;
+    public CreateTicketsCommandHandler(IRailwayDbContext db) => _db = db;
 
     private const double DistancePriceCoefficient = 1.2;
 
