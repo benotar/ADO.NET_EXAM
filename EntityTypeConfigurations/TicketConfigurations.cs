@@ -9,9 +9,6 @@ public class TicketConfigurations : IEntityTypeConfiguration<Ticket>
     public void Configure(EntityTypeBuilder<Ticket> builder)
     {
         builder.HasKey(t => t.Id);
-
-        builder.HasIndex(t => t.IsPurchased)
-            .IsUnique();
         
         builder.HasOne(t => t.Journey)
             .WithMany(j => j.Tickets)

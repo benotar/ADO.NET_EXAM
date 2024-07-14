@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using exam2.Data;
 
@@ -10,9 +11,11 @@ using exam2.Data;
 namespace exam2.Migrations
 {
     [DbContext(typeof(RailwayDbContext))]
-    partial class RailwayDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240714195339_RenamedField")]
+    partial class RenamedField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
@@ -41,188 +44,191 @@ namespace exam2.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Cities");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6629),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3381),
                             Latitude = 50.450099999999999,
                             Longitude = 30.523399999999999,
                             Name = "Kyiv",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6705)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3458)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6713),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3466),
                             Latitude = 49.839700000000001,
                             Longitude = 24.029699999999998,
                             Name = "Lviv",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6716)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3468)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6721),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3520),
                             Latitude = 46.482500000000002,
                             Longitude = 30.723299999999998,
                             Name = "Odesa",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6724)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3522)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6729),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3527),
                             Latitude = 48.464700000000001,
                             Longitude = 35.046199999999999,
                             Name = "Dnipro",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6731)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3529)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6736),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3533),
                             Latitude = 49.993499999999997,
                             Longitude = 36.230400000000003,
                             Name = "Kharkiv",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6739)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3535)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6744),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3539),
                             Latitude = 47.838799999999999,
                             Longitude = 35.139600000000002,
                             Name = "Zaporizhzhia",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6747)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3541)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6752),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3545),
                             Latitude = 46.975000000000001,
                             Longitude = 31.994599999999998,
                             Name = "Mykolaiv",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6755)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3547)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6759),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3551),
                             Latitude = 49.2331,
                             Longitude = 28.4682,
                             Name = "Vinnytsia",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6762)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3553)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6767),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3556),
                             Latitude = 49.588299999999997,
                             Longitude = 34.551400000000001,
                             Name = "Poltava",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6770)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3558)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6774),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3562),
                             Latitude = 51.498199999999997,
                             Longitude = 31.289300000000001,
                             Name = "Chernihiv",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6777)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3564)
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6782),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3568),
                             Latitude = 48.290799999999997,
                             Longitude = 25.9345,
                             Name = "Chernivtsi",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6784)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3570)
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6789),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3573),
                             Latitude = 46.635399999999997,
                             Longitude = 32.616900000000001,
                             Name = "Kherson",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6792)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3575)
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6827),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3579),
                             Latitude = 48.922600000000003,
                             Longitude = 24.7103,
                             Name = "Ivano-Frankivsk",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6832)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3581)
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6837),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3585),
                             Latitude = 50.907699999999998,
                             Longitude = 34.798099999999998,
                             Name = "Sumy",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6841)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3586)
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6847),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3590),
                             Latitude = 49.5535,
                             Longitude = 25.594799999999999,
                             Name = "Ternopil",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6852)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3592)
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6858),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3596),
                             Latitude = 48.620800000000003,
                             Longitude = 22.2879,
                             Name = "Uzhhorod",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6863)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3598)
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6869),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3601),
                             Latitude = 50.264899999999997,
                             Longitude = 28.6767,
                             Name = "Zhytomyr",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6873)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3603)
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6879),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3607),
                             Latitude = 50.619900000000001,
                             Longitude = 26.2516,
                             Name = "Rivne",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6883)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3609)
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6888),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3612),
                             Latitude = 50.747199999999999,
                             Longitude = 25.325399999999998,
                             Name = "Lutsk",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6892)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3614)
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6897),
+                            CreatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3618),
                             Latitude = 48.507899999999999,
                             Longitude = 32.262300000000003,
                             Name = "Kropyvnytskyi",
-                            UpdatedAt = new DateTime(2024, 7, 14, 22, 59, 11, 440, DateTimeKind.Local).AddTicks(6901)
+                            UpdatedAt = new DateTime(2024, 7, 14, 22, 53, 38, 550, DateTimeKind.Local).AddTicks(3620)
                         });
                 });
 
@@ -253,6 +259,9 @@ namespace exam2.Migrations
 
                     b.HasIndex("CityDepartureId");
 
+                    b.HasIndex("DispatchAt")
+                        .IsUnique();
+
                     b.ToTable("Journeys");
                 });
 
@@ -281,6 +290,9 @@ namespace exam2.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsPurchased")
+                        .IsUnique();
 
                     b.HasIndex("JourneyId");
 

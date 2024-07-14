@@ -34,10 +34,7 @@ public class CityConfigurations : IEntityTypeConfiguration<City>
     public void Configure(EntityTypeBuilder<City> builder)
     {
         builder.HasKey(c => c.Id);
-
-        builder.HasIndex(c => c.Name)
-            .IsUnique();
-
+        
         builder.Property(c => c.Latitude)
             .IsRequired();
 
