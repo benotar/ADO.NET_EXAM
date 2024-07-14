@@ -9,9 +9,6 @@ public class JourneyConfigurations : IEntityTypeConfiguration<Journey>
     public void Configure(EntityTypeBuilder<Journey> builder)
     {
         builder.HasKey(j => j.Id);
-
-        builder.HasIndex(j => j.DateDispatch)
-            .IsUnique();
         
         builder.HasOne(j => j.CityDeparture)
             .WithMany(c => c.JourneysDeparting)
